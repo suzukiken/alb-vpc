@@ -1,0 +1,8 @@
+{
+  "availability-zones:account=656169322665:region=ap-northeast-1": [
+    "ap-northeast-1a",
+    "ap-northeast-1b",
+    "ap-northeast-1c",
+    "ap-northeast-1d"
+  ]
+}
