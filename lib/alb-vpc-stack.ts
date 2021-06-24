@@ -21,18 +21,20 @@ export class AlbVpcStack extends cdk.Stack {
     )
     
     const vpc = new ec2.Vpc(this, 'VPC', {
-      natGateways: 1,
+      //natGateways: 1,
       subnetConfiguration: [
         {
           cidrMask: 24,
           name: 'Public',
           subnetType: ec2.SubnetType.PUBLIC,
         },
+        /*
         {
           cidrMask: 24,
           name: 'Private',
           subnetType: ec2.SubnetType.PRIVATE,
         }
+        */
       ],
     })
     
@@ -75,23 +77,23 @@ export class AlbVpcStack extends cdk.Stack {
       value: lb.loadBalancerArn, 
       exportName: this.node.tryGetContext('albarn_exportname')
     })
-
-    new cdk.CfnOutput(this, 'PublicAlbArnExport', { 
+    
+    new cdk.CfnOutput(this, 'PublicVpcIdExport', { 
       value: vpc.vpcId, 
       exportName: this.node.tryGetContext('public_vpcid_exportname')
     })
     
-    new cdk.CfnOutput(this, 'SecurityGrpExport', { 
+    new cdk.CfnOutput(this, 'SecurityGrpIdExport', { 
       value: securitygroup.securityGroupId, 
       exportName: this.node.tryGetContext('securitygroupid_exportname')
     })
     
-    new cdk.CfnOutput(this, 'Listener80Export', { 
+    new cdk.CfnOutput(this, 'ListenerArn80Export', { 
       value: http_listener.listenerArn, 
       exportName: this.node.tryGetContext('alb_listener_http_exportname')
     })
     
-    new cdk.CfnOutput(this, 'Listener443Export', { 
+    new cdk.CfnOutput(this, 'ListenerArn443Export', { 
       value: https_listener.listenerArn, 
       exportName: this.node.tryGetContext('alb_listener_https_exportname')
     })
