@@ -97,5 +97,10 @@ export class AlbVpcStack extends cdk.Stack {
       value: https_listener.listenerArn, 
       exportName: this.node.tryGetContext('alb_listener_https_exportname')
     })
+    
+    new cdk.CfnOutput(this, 'PublicSubnetIdExport', {
+      value: vpc.publicSubnets[0].subnetId,
+      exportName: this.node.tryGetContext('public_subnetid_exportname')
+    })
   }
 }

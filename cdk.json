@@ -18,6 +18,7 @@
     "securitygroupid_exportname": "v1-securitygroupid",
     "alb_listener_http_exportname": "v1-alb-http-listenerarn",
     "alb_listener_https_exportname": "v1-alb-https-listenerarn",
-    "apnortheast1_acmarn_exportname": "v-domain-figmentresearch-wildcard-apnortheast1-acmarn-3"
+    "apnortheast1_acmarn_exportname": "v-domain-figmentresearch-wildcard-apnortheast1-acmarn-3",
+    "public_subnetid_exportname": "v1-vpc-public-subnetid-exportname"
   }
 }
